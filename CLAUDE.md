@@ -91,16 +91,36 @@ de un vistazo desde el teléfono.
 **Mili mergea el PR.** No mergear por ella.
 
 **5. Deploy — importante: NO es automático.** Mergear a `main` no publica nada.
-La reseña recién se ve en el sitio cuando alguien corre:
+La reseña recién se ve en el sitio cuando alguien corre el deploy.
+
+El entorno de Claude para este proyecto ya tiene las credenciales de Cloudflare
+como variables de entorno (`CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`), así
+que **el deploy lo podés hacer vos**, después de que Mili mergee el PR:
 
 ```bash
-npx wrangler deploy
+git checkout main && git pull origin main   # deployá main, no la rama del PR
+WRANGLER_SEND_METRICS=false npx wrangler deploy
 ```
 
-Eso requiere estar logueado en Cloudflare (`npx wrangler login`, o un
-`CLOUDFLARE_API_TOKEN` en el entorno). Las sesiones de Claude normalmente **no**
-tienen esas credenciales, así que el deploy lo hace Mili. Al terminar un PR,
-recordarle que después de mergear tiene que correr el deploy.
+Verificá siempre con una llamada real a la URL en vivo antes de decir que salió
+—que la reseña nueva aparezca, y que `/CLAUDE.md` y `/.git/config` den 404.
+
+Si el deploy falla, mirá esto antes de improvisar:
+
+- **`Authentication error [code: 10000]`** — el token no sirve para publicar.
+  Tiene que ser uno de la plantilla **"Edit Cloudflare Workers"** (permiso
+  `Workers Scripts:Edit`). Ojo: **"Workers AI" es otro producto** y no sirve.
+- **`fetch failed` / `CONNECT tunnel failed 403`** — la política de red del
+  entorno bloquea `api.cloudflare.com`. Lo tiene que habilitar Mili en la
+  configuración del entorno; no hay forma de saltearlo desde acá.
+- **Cambiaste una variable de entorno y no la toma** — un contenedor ya en marcha
+  no las relee. Hay que abrir una **sesión nueva** desde el mismo entorno.
+  Para comprobar qué token estás usando sin exponerlo:
+  `curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify`
+
+Si por lo que sea no podés deployar, decíselo a Mili claramente y recordale que
+ella puede correr `npx wrangler deploy` desde su compu. **Nunca digas que una
+reseña está publicada si el deploy no corrió.**
 
 ### Cosas que NO hay que hacer
 
@@ -110,3 +130,7 @@ recordarle que después de mergear tiene que correr el deploy.
   reales.
 - No tocar el resto de la página al agregar una reseña. El diff debería ser
   solo las `<article>` nuevas.
+- No agregar archivos a la raíz del proyecto sin sumarlos a `.assetsignore`.
+  `wrangler.jsonc` publica la carpeta entera (`assets.directory = "."`), así que
+  **todo lo que no esté excluido queda accesible públicamente** en
+  `https://<sitio>/<ruta>`.
