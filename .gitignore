@@ -1,0 +1,10 @@
+# Fotos originales privadas de Rocky (no van a GitHub; la web usa assets/img/*.webp)
+assets/photos/
+
+# Cache local de Wrangler
+.wrangler/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log

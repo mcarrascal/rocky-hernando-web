@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rocky Hernando · The Conqueror — Montañista y coach deportivo</title>
+  <meta name="description" content="Soy Sergio «Rocky» Hernando: bicampeón argentino de culturismo, personal trainer y montañista rumbo a las Siete Cumbres. Entrenamiento y nutrición personalizados." />
+  <meta name="theme-color" content="#0b0e13" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rocky Hernando · The Conqueror" />
+  <meta property="og:description" content="Bicampeón argentino de culturismo y montañista rumbo a las Siete Cumbres. Entrená conmigo." />
+  <meta property="og:image" content="assets/img/hero-rocky.webp" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <!-- Hero priority -->
+  <link rel="preload" as="image" href="assets/img/hero-rocky.webp" fetchpriority="high" />
+
+  <link rel="stylesheet" href="styles.css?v=20260901f" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0e13'/><path d='M12 74 L38 30 L52 52 L64 34 L88 74 Z' fill='%23e6963c'/></svg>" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Splash -->
+  <div class="splash" data-splash aria-hidden="true">
+    <div class="splash-inner">
+      <span class="splash-mark" aria-hidden="true">
+        <svg viewBox="0 0 120 80" width="88" height="58"><path d="M6 72 L44 16 L64 44 L82 20 L114 72 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="splash-name">ROCKY&nbsp;HERNANDO</span>
+      <span class="splash-line" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" data-nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero" aria-label="Rocky Hernando — inicio">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 120 80" width="34" height="23"><path d="M6 72 L44 16 L64 44 L82 20 L114 72 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="nav-logo-text">Rocky Hernando</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a class="nav-link" href="#historia">Historia</a>
+        <a class="nav-link" href="#cumbres">Cumbres</a>
+        <a class="nav-link" href="#entrenamiento">Entrenamiento</a>
+        <a class="nav-link" href="#alumnos">Alumnos</a>
+        <a class="nav-link" href="#prensa">Prensa</a>
+      </nav>
+
+      <div class="nav-social">
+        <a class="icon-btn is-ig" href="https://www.instagram.com/rocky_hernando/" target="_blank" rel="noopener" aria-label="Instagram de Rocky">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="icon-btn is-wa" data-wa-link href="#" rel="noopener" aria-label="WhatsApp de Rocky">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        </a>
+      </div>
+
+      <a class="btn btn-primary nav-cta" href="#contacto">Entrená conmigo</a>
+
+      <button class="nav-burger" data-burger aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" id="mobile-menu" data-mobile-menu aria-hidden="true">
+    <nav aria-label="Menú móvil">
+      <a href="#historia">Historia</a>
+      <a href="#cumbres">Cumbres</a>
+      <a href="#expediciones">Expediciones</a>
+      <a href="#entrenamiento">Entrenamiento</a>
+      <a href="#alumnos">Alumnos</a>
+      <a href="#prensa">Prensa</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-mobile-social">
+      <a class="icon-btn is-ig" href="https://www.instagram.com/rocky_hernando/" target="_blank" rel="noopener" aria-label="Instagram de Rocky">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="icon-btn is-wa" data-wa-link href="#" rel="noopener" aria-label="WhatsApp de Rocky">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/img/hero-rocky.webp" alt="" class="hero-img ambient-on" fetchpriority="high" decoding="sync" />
+        <div class="hero-tint"></div>
+        <div class="hero-grain"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="kicker">Montañista · Coach · Bicampeón argentino de culturismo</p>
+        <h1 class="hero-title">
+          <span class="hero-name">Rocky Hernando</span>
+          <span class="hero-epithet"><span>The</span> <em>Conqueror</em></span>
+        </h1>
+        <p class="hero-sub">Ocho grandes cumbres y un objetivo: las Siete Cumbres. Cuando bajo de la montaña, entreno y armo la nutrición de los que quieren llegar más alto.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Entrená conmigo</a>
+          <a class="btn btn-ghost" href="#cumbres">Seguí mi travesía</a>
+        </div>
+      </div>
+
+      <ul class="hero-stats" aria-label="Mis cifras">
+        <li><span class="stat-num"><span data-count-to="4">4</span></span><span class="stat-label">Seven Summits</span></li>
+        <li><span class="stat-num"><span data-count-to="8">8</span></span><span class="stat-label">Grandes cumbres</span></li>
+        <li><span class="stat-num"><span data-count-to="4">4</span></span><span class="stat-label">Continentes</span></li>
+        <li><span class="stat-num"><span data-count-to="6961">6961</span><span class="stat-unit">m</span></span><span class="stat-label">Mi techo</span></li>
+      </ul>
+
+      <a class="hero-scroll" href="#historia" aria-label="Bajar">
+        <span class="hero-scroll-line" aria-hidden="true"></span>
+        <span class="hero-scroll-text">Bajar</span>
+      </a>
+    </section>
+
+    <!-- ===================== HISTORIA ===================== -->
+    <section class="about" id="historia">
+      <div class="about-grid">
+        <figure class="about-figure" data-reveal>
+          <img src="assets/img/rocky-denali.webp" alt="Rocky Hernando en el glaciar del Denali, Alaska" loading="lazy" decoding="async" />
+          <figcaption class="about-caption">Denali · Alaska</figcaption>
+        </figure>
+
+        <div class="about-text">
+          <p class="kicker" data-reveal>Quién soy</p>
+          <h2 class="about-title" data-reveal>Del fierro a la cumbre más alta de América.</h2>
+          <p data-reveal>Soy Sergio «Rocky» Hernando. <strong>Bicampeón argentino de culturismo</strong>, personal trainer y montañista. También competí afuera: quedé 7.º en un campeonato de culturismo en Italia. Me hice en el gimnasio y me terminé de encontrar en la montaña.</p>
+          <p data-reveal>Entreno, asesoro y subo. A mis alumnos les armo el entrenamiento y la nutrición a medida, y en cada expedición aplico lo mismo que enseño: constancia, cabeza fría y respeto por la montaña.</p>
+          <p data-reveal>Ya subí cuatro de las Siete Cumbres —Aconcagua, Kilimanjaro, Elbrus y Denali—. Me faltan tres, y voy por ellas.</p>
+          <p class="about-sign" data-reveal>Rocky Hernando · <span>The Conqueror</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SEVEN SUMMITS ===================== -->
+    <section class="summits" id="cumbres">
+      <div class="section-head">
+        <p class="kicker" data-reveal>Mi proyecto · Seven Summits</p>
+        <h2 class="section-title" data-reveal>Siete cumbres, siete continentes. Ya conquisté <em>cuatro.</em></h2>
+        <div class="summits-progress" data-reveal>
+          <span class="summits-progress-num"><span data-count-to="4">4</span> / 7</span>
+          <span class="summits-progress-bar" aria-hidden="true"><span style="--p:57%"></span></span>
+          <span class="summits-progress-label">cumbres que ya subí</span>
+        </div>
+      </div>
+
+      <ol class="ascent" aria-label="Mi progreso en las Siete Cumbres">
+        <li class="ascent-row is-pending" data-reveal style="--w:100%">
+          <span class="ascent-rank">01</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Everest</span><span class="ascent-cont">Nepal · Asia</span></span>
+          <span class="ascent-alt">8.849 <small>m</small></span>
+          <span class="ascent-status">Pendiente</span>
+        </li>
+        <li class="ascent-row is-done" data-reveal style="--w:78.7%">
+          <span class="ascent-rank">02</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Aconcagua</span><span class="ascent-cont">Argentina · Sudamérica</span></span>
+          <span class="ascent-alt">6.961 <small>m</small></span>
+          <span class="ascent-status">Conquistada</span>
+        </li>
+        <li class="ascent-row is-done" data-reveal style="--w:70%">
+          <span class="ascent-rank">03</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Denali</span><span class="ascent-cont">EE. UU. · Norteamérica</span></span>
+          <span class="ascent-alt">6.190 <small>m</small></span>
+          <span class="ascent-status">Conquistada</span>
+        </li>
+        <li class="ascent-row is-done" data-reveal style="--w:66.6%">
+          <span class="ascent-rank">04</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Kilimanjaro</span><span class="ascent-cont">Tanzania · África</span></span>
+          <span class="ascent-alt">5.895 <small>m</small></span>
+          <span class="ascent-status">Conquistada</span>
+        </li>
+        <li class="ascent-row is-done" data-reveal style="--w:63.8%">
+          <span class="ascent-rank">05</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Elbrus</span><span class="ascent-cont">Rusia · Europa</span></span>
+          <span class="ascent-alt">5.642 <small>m</small></span>
+          <span class="ascent-status">Conquistada</span>
+        </li>
+        <li class="ascent-row is-pending" data-reveal style="--w:55.3%">
+          <span class="ascent-rank">06</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Vinson</span><span class="ascent-cont">Antártida</span></span>
+          <span class="ascent-alt">4.892 <small>m</small></span>
+          <span class="ascent-status">Pendiente</span>
+        </li>
+        <li class="ascent-row is-pending" data-reveal style="--w:55.2%">
+          <span class="ascent-rank">07</span>
+          <span class="ascent-bar" aria-hidden="true"><i></i></span>
+          <span class="ascent-info"><span class="ascent-name">Carstensz Pyramid</span><span class="ascent-cont">Indonesia · Oceanía</span></span>
+          <span class="ascent-alt">4.884 <small>m</small></span>
+          <span class="ascent-status">Pendiente</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== EXPEDICIONES ===================== -->
+    <section class="exped" id="expediciones">
+      <div class="section-head">
+        <p class="kicker" data-reveal>Más allá de las Siete</p>
+        <h2 class="section-title" data-reveal>Expediciones que no entran en la lista, pero <em>cuentan mi historia.</em></h2>
+      </div>
+
+      <div class="exped-grid">
+        <article class="exp-card" data-reveal>
+          <div class="exp-img"><img src="assets/img/andes-peak.webp" alt="Cara nevada del Alpamayo en la Cordillera Blanca" loading="lazy" decoding="async" /></div>
+          <div class="exp-body">
+            <p class="exp-loc">Cordillera Blanca · Perú</p>
+            <h3 class="exp-name">Alpamayo</h3>
+            <p class="exp-alt">5.947 m</p>
+            <p class="exp-desc">De las montañas más técnicas y bellas que escalé.</p>
+          </div>
+        </article>
+
+        <article class="exp-card" data-reveal>
+          <div class="exp-img"><img src="assets/img/patagonia.webp" alt="Campo de hielo patagónico con montañas" loading="lazy" decoding="async" /></div>
+          <div class="exp-body">
+            <p class="exp-loc">Campo de Hielo Sur · Argentina / Chile</p>
+            <h3 class="exp-name">Hielos Continentales</h3>
+            <p class="exp-alt">Travesía</p>
+            <p class="exp-desc">Sobre el tercer campo de hielo más grande del planeta.</p>
+          </div>
+        </article>
+
+        <article class="exp-card" data-reveal>
+          <div class="exp-img"><img src="assets/img/rocky-salkantay.webp" alt="Rocky en el trekking del Salkantay, camino a Machu Picchu" loading="lazy" decoding="async" /></div>
+          <div class="exp-body">
+            <p class="exp-loc">Cusco · Perú</p>
+            <h3 class="exp-name">Salkantay</h3>
+            <p class="exp-alt">6.271 m</p>
+            <p class="exp-desc">Nevado sagrado camino a Machu Picchu, en los Andes peruanos.</p>
+          </div>
+        </article>
+
+        <article class="exp-card" data-reveal>
+          <div class="exp-img"><img src="assets/img/rocky-lanin-ascenso.webp" alt="Rocky liderando el ascenso al volcán Lanín al amanecer" loading="lazy" decoding="async" /></div>
+          <div class="exp-body">
+            <p class="exp-loc">Neuquén · Argentina / Chile</p>
+            <h3 class="exp-name">Lanín</h3>
+            <p class="exp-alt">3.776 m</p>
+            <p class="exp-desc">El volcán emblema de la Patagonia norte.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" data-marquee>
+        <span>Aconcagua</span><span class="dot">◆</span><span>Kilimanjaro</span><span class="dot">◆</span><span>Elbrus</span><span class="dot">◆</span><span>Alpamayo</span><span class="dot">◆</span><span>Hielos Continentales</span><span class="dot">◆</span><span>Lanín</span><span class="dot">◆</span><span>Salkantay</span><span class="dot">◆</span><span>Denali</span><span class="dot">◆</span>
+      </div>
+    </div>
+
+    <!-- ===================== ENTRENAMIENTO ===================== -->
+    <section class="train" id="entrenamiento">
+      <div class="train-top">
+        <div class="section-head">
+          <p class="kicker" data-reveal>Entrená conmigo</p>
+          <h2 class="section-title" data-reveal>Lo que aprendo en la montaña, lo bajo a <em>tu entrenamiento.</em></h2>
+          <p class="section-lead" data-reveal>Te armo un plan según tu objetivo, tu nivel y tu tiempo. Entrenamiento y nutrición, hechos a tu medida. Sé lo que es exigirse: soy bicampeón argentino de culturismo.</p>
+        </div>
+        <figure class="train-figure" data-reveal>
+          <img src="assets/img/rocky-fisico2.webp" alt="Rocky Hernando, bicampeón argentino de culturismo" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+
+      <div class="train-grid">
+        <article class="train-card" data-reveal>
+          <span class="train-num">01</span>
+          <h3 class="train-name">Entrenamiento personalizado</h3>
+          <p>Te planifico la semana según tu objetivo y tu nivel. Fuerza, resistencia y progresión real, con seguimiento de cerca.</p>
+        </article>
+        <article class="train-card" data-reveal>
+          <span class="train-num">02</span>
+          <h3 class="train-name">Nutrición a medida</h3>
+          <p>Te diseño la alimentación para tu cuerpo y tu deporte. Sin dietas mágicas: comida que rinde y que podés sostener.</p>
+        </article>
+        <article class="train-card" data-reveal>
+          <span class="train-num">03</span>
+          <h3 class="train-name">Preparación de montaña</h3>
+          <p>Te preparo para el trekking, la altura y la expedición. Llegás listo, entrenado y con cabeza a tu cumbre.</p>
+        </article>
+      </div>
+
+      <div class="train-cta" data-reveal>
+        <a class="btn btn-primary" href="#contacto">Pedime tu plan</a>
+      </div>
+    </section>
+
+    <!-- ===================== ALUMNOS ===================== -->
+    <section class="alumnos" id="alumnos">
+      <div class="section-head">
+        <p class="kicker" data-reveal>Con mis alumnos</p>
+        <h2 class="section-title" data-reveal>De la sala de pesas a la cumbre, <em>con mis alumnos.</em></h2>
+        <p class="section-lead" data-reveal>Los acompaño en el entrenamiento, en la nutrición y, cuando se animan, también en la montaña.</p>
+      </div>
+      <figure class="alumnos-feature" data-reveal><img src="assets/img/alumno-4.webp" alt="Rocky entrenando a un grupo de alumnos en su gimnasio" loading="lazy" decoding="async" /></figure>
+      <div class="ccar" data-ccar>
+        <button class="ccar-arrow ccar-prev" type="button" aria-label="Foto anterior"><span aria-hidden="true">‹</span></button>
+        <div class="ccar-vp" data-ccar-vp>
+          <div class="ccar-track" data-ccar-track>
+            <div class="cslide"><img src="assets/img/alumno-1.webp" alt="Rocky guiando a una alumna en sentadilla con barra" loading="lazy" decoding="async" /></div>
+            <div class="cslide"><img src="assets/img/alumno-2.webp" alt="Rocky con un alumno en la cumbre" loading="lazy" decoding="async" /></div>
+            <div class="cslide"><img src="assets/img/alumno-5.webp" alt="Rocky guiando ejercicios de salto con sus alumnas" loading="lazy" decoding="async" /></div>
+            <div class="cslide"><img src="assets/img/alumno-3.webp" alt="Alumna entrenando fuerza en el gimnasio" loading="lazy" decoding="async" /></div>
+            <div class="cslide"><img src="assets/img/alumno-6.webp" alt="Rocky corrigiendo la técnica de sus alumnos" loading="lazy" decoding="async" /></div>
+            <div class="cslide"><img src="assets/img/alumno-7.webp" alt="Rocky asistiendo a un alumno en el gimnasio" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <button class="ccar-arrow ccar-next" type="button" aria-label="Foto siguiente"><span aria-hidden="true">›</span></button>
+        <div class="ccar-dots" data-ccar-dots role="tablist" aria-label="Fotos de alumnos"></div>
+      </div>
+    </section>
+
+    <!-- ===================== RESEÑAS ===================== -->
+    <section class="reviews" id="resenas">
+      <div class="section-head">
+        <p class="kicker" data-reveal>Reseñas</p>
+        <h2 class="section-title" data-reveal>Lo que dicen <em>mis alumnos.</em></h2>
+      </div>
+
+      <div class="reviews-grid" data-reviews data-reveal>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">Lo más importante: te entrena la mentalidad positiva y la confianza en uno mismo 💪🏽🩶</p>
+          <p class="review-name">Agus R.</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">Rocky me cambió la mentalidad y constantemente me motiva a seguir y dar lo mejor de mí.</p>
+          <p class="review-name">Nico Vecchione</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">Es muy difícil explicar lo que Rocky realmente nos enseña. Te muestra una versión de vos que no sabías que existía adentro tuyo. Te fortalece el cuerpo y la mente de forma tal que uno desarrolla mucha confianza propia. Y lo hace desde el ejemplo y la paciencia. 🤍</p>
+          <p class="review-name">J. Noa Rodríguez</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">Gran entrenador y gran persona. Siempre motivándome para mejorar cada día 💪</p>
+          <p class="review-name">Santino Cutini</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">Si buscás un cambio, es la persona que te va a incentivar y acompañar para lograr tus metas, paso a paso y año tras año concretándolo… gracias Rocky.</p>
+          <p class="review-name">Andrés</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="review-text">The best !!!</p>
+          <p class="review-name">Carolina</p>
+        </article>
+      </div>
+
+      <div class="reviews-form-card" data-reveal>
+        <h3 class="reviews-cta-title">¿Ya sos alumno? <em>Dejá tu reseña</em></h3>
+        <p class="reviews-cta-sub">Contá tu experiencia entrenando conmigo.</p>
+        <form class="review-form" data-review-form novalidate>
+          <div class="stars-input" data-stars role="radiogroup" aria-label="Tu puntuación (1 a 5)">
+            <button type="button" class="star" data-star="1" aria-label="1 estrella">★</button>
+            <button type="button" class="star" data-star="2" aria-label="2 estrellas">★</button>
+            <button type="button" class="star" data-star="3" aria-label="3 estrellas">★</button>
+            <button type="button" class="star" data-star="4" aria-label="4 estrellas">★</button>
+            <button type="button" class="star" data-star="5" aria-label="5 estrellas">★</button>
+          </div>
+          <input type="hidden" name="estrellas" data-stars-value />
+          <div class="field">
+            <input type="text" id="r-name" name="name" required placeholder=" " />
+            <label for="r-name">Tu nombre</label>
+          </div>
+          <div class="field">
+            <textarea id="r-msg" name="review" rows="3" required placeholder=" "></textarea>
+            <label for="r-msg">Tu reseña</label>
+          </div>
+          <button type="submit" class="btn btn-primary review-submit">
+            <span class="review-label">Enviar reseña</span>
+            <span class="review-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+        <div class="review-success" data-review-success aria-hidden="true">
+          <h3>¡Gracias por tu reseña! 🙌</h3>
+          <p>La recibió Rocky. En breve la vas a ver publicada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA ===================== -->
+    <section class="gallery" id="galeria" aria-label="Más imágenes de Rocky">
+      <div class="gallery-mosaic">
+        <figure data-reveal><img src="assets/img/rocky-lanin.webp" alt="Rocky y su grupo frente al volcán Lanín" loading="lazy" decoding="async" /></figure>
+        <figure data-reveal><img src="assets/img/rocky-fisico.webp" alt="Rocky Hernando, físico de culturista" loading="lazy" decoding="async" /></figure>
+        <figure data-reveal><img src="assets/img/rocky-machu.webp" alt="Rocky celebrando en Machu Picchu" loading="lazy" decoding="async" /></figure>
+        <figure data-reveal><img src="assets/img/rocky-fisico3.webp" alt="Rocky Hernando entrenando" loading="lazy" decoding="async" /></figure>
+        <figure data-reveal><img src="assets/img/rocky-machu3.webp" alt="Rocky en el camino a Machu Picchu" loading="lazy" decoding="async" /></figure>
+        <figure data-reveal><img src="assets/img/rocky-fisico4.webp" alt="Rocky Hernando, definición muscular" loading="lazy" decoding="async" /></figure>
+      </div>
+    </section>
+
+    <!-- ===================== PRENSA ===================== -->
+    <section class="press" id="prensa">
+      <div class="section-head">
+        <p class="kicker" data-reveal>En los medios</p>
+        <h2 class="section-title" data-reveal>Donde conté <em>mi historia.</em></h2>
+      </div>
+
+      <div class="press-grid" data-press>
+        <div class="press-card" data-reveal>
+          <div class="press-img press-img-top"><img src="assets/img/rocky-rivadavia.webp" alt="Rocky Hernando entrevistado en Radio Rivadavia" loading="lazy" decoding="async" /></div>
+          <div class="press-body">
+            <span class="press-type">Radio · Entrevista</span>
+            <span class="press-title">Radio Rivadavia AM 630</span>
+          </div>
+        </div>
+        <div class="press-card" data-reveal>
+          <div class="press-img"><img src="assets/img/rocky-podcast.webp" alt="Rocky Hernando en el programa Noticias de Salud" loading="lazy" decoding="async" /></div>
+          <div class="press-body">
+            <span class="press-type">TV · Podcast</span>
+            <span class="press-title">Noticias de Salud</span>
+          </div>
+        </div>
+        <a class="press-card press-card-invite" data-wa-link href="#" rel="noopener" data-reveal>
+          <div class="press-body">
+            <span class="press-type">¿Tu medio?</span>
+            <span class="press-title">¿Querés que cuente mi historia en tu programa?</span>
+            <span class="press-cue">Escribime <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section class="contact" id="contacto">
+      <div class="contact-bg" aria-hidden="true">
+        <img src="assets/img/camp-night.webp" alt="" loading="lazy" decoding="async" />
+        <div class="contact-tint"></div>
+      </div>
+
+      <div class="contact-inner">
+        <div class="contact-copy">
+          <p class="kicker" data-reveal>El próximo paso</p>
+          <h2 class="section-title" data-reveal>¿Entrenamos <em>juntos?</em></h2>
+          <p class="section-lead" data-reveal>Contame tu objetivo y armamos un plan. Entrenamiento, nutrición o preparación para tu próxima montaña.</p>
+          <div class="contact-direct" data-reveal>
+            <a class="btn btn-wa" data-wa-link href="#" rel="noopener">
+              <span aria-hidden="true">✆</span> Escribime por WhatsApp
+            </a>
+            <a class="contact-ig" href="https://www.instagram.com/rocky_hernando/" target="_blank" rel="noopener">@rocky_hernando</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap" data-reveal>
+          <form class="cta-form" data-contact-form novalidate>
+            <div class="field">
+              <input type="text" id="c-name" name="name" required placeholder=" " />
+              <label for="c-name">Nombre</label>
+            </div>
+            <div class="field">
+              <input type="email" id="c-email" name="email" required placeholder=" " />
+              <label for="c-email">Email</label>
+            </div>
+            <div class="field">
+              <select id="c-goal" name="goal" required aria-label="Objetivo">
+                <option value="" disabled selected>Elegí un objetivo</option>
+                <option value="Entrenamiento personalizado">Entrenamiento personalizado</option>
+                <option value="Nutrición a medida">Nutrición a medida</option>
+                <option value="Preparación de montaña">Preparación de montaña</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="field">
+              <textarea id="c-msg" name="message" rows="3" placeholder=" "></textarea>
+              <label for="c-msg">Contame un poco (opcional)</label>
+            </div>
+            <button type="submit" class="btn btn-primary cta-submit">
+              <span class="cta-form-label">Enviar a WhatsApp</span>
+              <span class="cta-form-spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-note">Al enviar se abre WhatsApp con tu consulta ya escrita.</p>
+          </form>
+
+          <div class="cta-success" data-contact-success aria-hidden="true">
+            <h3>¡Listo!</h3>
+            <p data-contact-success-msg></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 120 80" width="40" height="27"><path d="M6 72 L44 16 L64 44 L82 20 L114 72 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="footer-name">Rocky Hernando</span>
+        <span class="footer-tag">The Conqueror</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Pie">
+        <a href="#historia">Historia</a>
+        <a href="#cumbres">Cumbres</a>
+        <a href="#entrenamiento">Entrenamiento</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer-social">
+        <a class="icon-btn is-ig" href="https://www.instagram.com/rocky_hernando/" target="_blank" rel="noopener" aria-label="Instagram de Rocky">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="icon-btn is-wa" data-wa-link href="#" rel="noopener" aria-label="WhatsApp de Rocky">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> Rocky Hernando. Todos los derechos reservados.</p>
+      <p class="footer-credits">Créditos fotográficos: <a href="https://www.instagram.com/undine.ph/" target="_blank" rel="noopener">Ondina Hernando</a></p>
+    </div>
+
+    <div class="footer-maker">
+      <span class="footer-maker-text">Sitio creado por <a href="https://kepleragencyai.com.ar" target="_blank" rel="noopener"><strong>Kepler AI Agency</strong></a></span>
+      <span class="footer-maker-social">
+        <a class="icon-btn icon-btn-sm is-ig" href="https://www.instagram.com/kepleragency.ai/" target="_blank" rel="noopener" aria-label="Instagram de Kepler AI Agency">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="icon-btn icon-btn-sm is-wa" href="https://wa.me/5491138120436" target="_blank" rel="noopener" aria-label="WhatsApp de Kepler AI Agency">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="lib/gsap.min.js"></script>
+  <script defer src="lib/ScrollTrigger.min.js"></script>
+  <script defer src="lib/manifest.js?v=20260901f"></script>
+  <script defer src="main.js?v=20260901f"></script>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa-fab" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Escribile a Rocky por WhatsApp">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  </a>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "925bc63887aa4402b8bf082ab23c3258"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

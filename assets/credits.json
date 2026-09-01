@@ -1,0 +1,167 @@
+{
+  "hero-summit": {
+    "src": "assets/img/hero-summit.jpg",
+    "title": "Nepal - Sagarmatha Trek - Range looking S from trail to Dole",
+    "creator": "mckaysavage",
+    "creator_url": "https://www.flickr.com/photos/56796376@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/56796376@N00/493529749",
+    "source": "flickr"
+  },
+  "summit-clouds": {
+    "src": "assets/img/summit-clouds.jpg",
+    "title": "Night Clouds",
+    "creator": "BLM Oregon & Washington",
+    "creator_url": "https://www.flickr.com/photos/50169152@N06",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/50169152@N06/11424601594",
+    "source": "flickr"
+  },
+  "aconcagua": {
+    "src": "assets/img/aconcagua.jpg",
+    "title": "Andes - Argentina",
+    "creator": "Flavia Mariani",
+    "creator_url": "https://www.flickr.com/photos/39159360@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/39159360@N00/2187086209",
+    "source": "flickr"
+  },
+  "kilimanjaro": {
+    "src": "assets/img/kilimanjaro.jpg",
+    "title": "kilimanjaro from the shira plateau",
+    "creator": "blhphotography",
+    "creator_url": "https://www.flickr.com/photos/55146360@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/55146360@N00/468749057",
+    "source": "flickr"
+  },
+  "elbrus": {
+    "src": "assets/img/elbrus.jpg",
+    "title": "Elbrus",
+    "creator": "Hombit",
+    "creator_url": "https://www.flickr.com/photos/48935799@N05",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/48935799@N05/4777664853",
+    "source": "flickr"
+  },
+  "denali": {
+    "src": "assets/img/denali.jpg",
+    "title": "130520-A-SO352-018",
+    "creator": "U.S. Army Alaska",
+    "creator_url": "https://www.flickr.com/photos/46594102@N05",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/46594102@N05/8776502332",
+    "source": "flickr"
+  },
+  "patagonia": {
+    "src": "assets/img/patagonia.jpg",
+    "title": "Perito Moreno Glacier, Argentina",
+    "creator": "Dimitry B",
+    "creator_url": "https://www.flickr.com/photos/61533954@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/61533954@N00/8754152916",
+    "source": "flickr"
+  },
+  "andes-peak": {
+    "src": "assets/img/andes-peak.jpg",
+    "title": "Central Andes",
+    "creator": "NASA Goddard Photo and Video",
+    "creator_url": "https://www.flickr.com/photos/24662369@N07",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/24662369@N07/5204247797",
+    "source": "nasa"
+  },
+  "ridge-climb": {
+    "src": "assets/img/ridge-climb.jpg",
+    "title": "French Alps View",
+    "creator": "moonjazz",
+    "creator_url": "https://www.flickr.com/photos/8398907@N02",
+    "license": "by-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/8398907@N02/7508528408",
+    "source": "flickr"
+  },
+  "ice-detail": {
+    "src": "assets/img/ice-detail.jpg",
+    "title": "Angle",
+    "creator": "Phillie Casablanca",
+    "creator_url": "https://www.flickr.com/photos/19451080@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/19451080@N00/2052728068",
+    "source": "flickr"
+  },
+  "camp-night": {
+    "src": "assets/img/camp-night.jpg",
+    "title": "Sarek NP (S) - Full moon",
+    "creator": "Michiel van Nimwegen",
+    "creator_url": "https://www.flickr.com/photos/8228813@N06",
+    "license": "by-nc-nd",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/8228813@N06/6975780865",
+    "source": "flickr"
+  },
+  "glacier": {
+    "src": "assets/img/glacier.jpg",
+    "title": "13-07-24_73A3828_PermaLiv",
+    "creator": "Øyvind Holmstad",
+    "creator_url": "https://www.flickr.com/photos/78304219@N06",
+    "license": "by-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/78304219@N06/54393083821",
+    "source": "flickr"
+  },
+  "peaks-dawn": {
+    "src": "assets/img/peaks-dawn.jpg",
+    "title": "Table Mountain Sunset",
+    "creator": "Bold Frontiers",
+    "creator_url": "https://www.flickr.com/photos/82955120@N05",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/82955120@N05/7645751700",
+    "source": "flickr"
+  },
+  "trail-hiker": {
+    "src": "assets/img/trail-hiker.jpg",
+    "title": "412 South Kaibab Trail Grand Canyon NP: a steep ramp",
+    "creator": "Grand Canyon NPS",
+    "creator_url": "https://www.flickr.com/photos/50693818@N08",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/50693818@N08/4758426501",
+    "source": "flickr"
+  },
+  "lanin-volcano": {
+    "src": "assets/img/lanin-volcano.jpg",
+    "title": "Volcán Cotopaxi at 5,897 meters (19,347 feet) above sea level, Parque Nacinal Cotopaxi, Latacunga, Ecuador.",
+    "creator": "ER's Eyes - Our planet is beautiful.",
+    "creator_url": "https://www.flickr.com/photos/41111966@N04",
+    "license": "by-nc-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/41111966@N04/49201512502",
+    "source": "flickr"
+  }
+}

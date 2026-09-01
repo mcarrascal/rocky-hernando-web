@@ -1,0 +1,5 @@
+assets/photos/
+tools/
+.htaccess
+wrangler.jsonc
+.assetsignore
