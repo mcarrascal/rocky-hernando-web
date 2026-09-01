@@ -353,6 +353,155 @@
     });
   }
 
+  /* ---------- Reviews carousel (2 filas × N cols, loop infinito) ----------
+     Modelo: pista horizontal de COLUMNAS rígidas. Cada columna = 2 reseñas
+     apiladas. Todas las columnas comparten la MISMA altura total; dentro de
+     cada una las tarjetas crecen en proporción a su texto (sin recortes). Se
+     emparejan larga+corta para equilibrar y no juntar las dos más largas. */
+  function initReviewsCarousel() {
+    var source = $("[data-reviews]");
+    var host = $("[data-reviews-carousel]");
+    if (!source || !host) return;
+    var cards = $$(".review-card", source);
+    var N = cards.length;
+    if (N < 3) return;                 // muy pocas: se deja la grilla estática
+    if (reduced || !window.gsap) return; // sin motion / sin gsap: grilla estática
+
+    var GAP = 16, SPEED = 42;
+    var tweens = [], rt = null, fontsHooked = false;
+    var mainTween = null, unitPx = 0, isHover = false, manualLock = false;
+
+    function colsFor(w) { return w < 620 ? 1 : (w < 980 ? 2 : 3); }
+
+    // Alturas naturales (texto completo) de cada reseña al ancho de columna dado.
+    function measure(colW) {
+      var meas = document.createElement("div");
+      meas.className = "reviews-carousel";
+      meas.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;display:block;";
+      meas.style.setProperty("--rev-col", colW + "px");
+      var mcol = document.createElement("div");
+      mcol.className = "rev-col";
+      mcol.style.height = "auto"; mcol.style.width = colW + "px";
+      meas.appendChild(mcol);
+      document.body.appendChild(meas);
+      var hs = cards.map(function (c) {
+        mcol.innerHTML = "";
+        var cl = c.cloneNode(true);
+        cl.style.flexGrow = "0"; cl.style.flexBasis = "auto";
+        mcol.appendChild(cl);
+        return cl.getBoundingClientRect().height;
+      });
+      document.body.removeChild(meas);
+      return hs;
+    }
+
+    // Emparejar en columnas: más alta con más corta (dos punteros).
+    function pair(h) {
+      var idx = cards.map(function (_, i) { return i; })
+        .sort(function (a, b) { return h[b] - h[a]; });
+      var cols = [], i = 0, j = idx.length - 1;
+      while (i < j) { cols.push([idx[i], idx[j]]); i++; j--; }
+      if (i === j) cols.push([idx[i]]);   // impar → última columna con 1 tarjeta
+      return cols;
+    }
+
+    function build() {
+      tweens.forEach(function (t) { t.kill(); }); tweens = [];
+      host.innerHTML = "";
+      var W = host.clientWidth || source.clientWidth || 960;
+      var cols = colsFor(W);
+      var colW = (W - GAP * (cols - 1)) / cols;
+
+      var h = measure(colW);
+      var columns = pair(h);
+      var C = columns.length;
+
+      // Altura total uniforme = la de la columna con más texto.
+      var H = 0;
+      columns.forEach(function (col) {
+        var s = col.reduce(function (a, k) { return a + h[k]; }, 0) + (col.length - 1) * GAP;
+        if (s > H) H = s;
+      });
+
+      host.style.setProperty("--rev-col", colW + "px");
+      host.style.setProperty("--rev-gap", GAP + "px");
+      host.style.setProperty("--rev-h", H + "px");
+
+      var track = document.createElement("div");
+      track.className = "rev-track";
+      track.style.gap = GAP + "px";
+      var period = C * (colW + GAP);                 // ancho de una vuelta
+      var reps = Math.max(3, Math.ceil((W * 3) / period) + 1);
+
+      for (var rep = 0; rep < reps; rep++) {
+        columns.forEach(function (col) {
+          var colEl = document.createElement("div");
+          colEl.className = "rev-col";
+          colEl.style.width = colW + "px";
+          colEl.style.height = H + "px";
+          colEl.style.gap = GAP + "px";
+          col.forEach(function (k) {
+            var cl = cards[k].cloneNode(true);
+            cl.removeAttribute("data-reveal");
+            cl.style.flexGrow = String(h[k]);        // proporcional al texto
+            cl.style.flexBasis = "0";
+            colEl.appendChild(cl);
+          });
+          track.appendChild(colEl);
+        });
+      }
+
+      host.appendChild(track);
+      host.appendChild(btnPrev);   // re-anexar flechas (host.innerHTML las quitó)
+      host.appendChild(btnNext);
+      host.classList.add("is-ready");
+      source.classList.add("is-sr");
+
+      var tw = window.gsap.fromTo(track, { x: 0 }, { x: -period, duration: period / SPEED, ease: "none", repeat: -1 });
+      tw.totalTime(tw.duration() * 100000);   // margen para desplazar hacia atrás sin llegar a 0
+      tweens = [tw]; mainTween = tw; unitPx = colW + GAP;
+      if (isHover) tw.timeScale(0);
+
+      // Recalcular una vez que cargan las fuentes (cambian las alturas medidas).
+      if (!fontsHooked && document.fonts && document.fonts.ready) {
+        fontsHooked = true;
+        document.fonts.ready.then(function () { build(); });
+      }
+    }
+
+    // Estado de auto-scroll (0 = pausado por hover, 1 = corriendo).
+    function setAuto() { if (manualLock || !mainTween) return; window.gsap.to(mainTween, { timeScale: isHover ? 0 : 1, duration: .4, overwrite: true }); }
+
+    // Desplazamiento manual: una columna por clic, respetando el loop infinito.
+    function nudge(dir) {
+      if (!mainTween) return;
+      manualLock = true;
+      mainTween.timeScale(0);                       // congelar auto mientras arrastramos
+      var target = mainTween.totalTime() + dir * (unitPx / SPEED);
+      window.gsap.to(mainTween, { totalTime: target, duration: .55, ease: "power2.inOut", overwrite: true,
+        onComplete: function () { manualLock = false; setAuto(); } });
+    }
+
+    // Flechas (creadas una vez; se re-anexan en cada build).
+    function navBtn(dir, label) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "rev-nav " + (dir < 0 ? "prev" : "next");
+      b.setAttribute("aria-label", label);
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="' + (dir < 0 ? "M15 18l-6-6 6-6" : "M9 6l6 6-6 6") + '"/></svg>';
+      b.addEventListener("click", function () { nudge(dir); });
+      return b;
+    }
+    var btnPrev = navBtn(-1, "Reseñas anteriores");
+    var btnNext = navBtn(1, "Reseñas siguientes");
+
+    // Pausa suave al pasar el mouse (cortesía; en touch no aplica).
+    host.addEventListener("mouseenter", function () { isHover = true; setAuto(); });
+    host.addEventListener("mouseleave", function () { isHover = false; setAuto(); });
+
+    build();
+    window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(build, 220); });
+  }
+
   /* ---------- Misc ---------- */
   function initYear() { $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); }); }
 
@@ -374,9 +523,11 @@
     if (window.gsap && window.ScrollTrigger) {
       try { window.gsap.registerPlugin(window.ScrollTrigger); } catch (_) {}
       safe(initMarquee, "initMarquee");
+      safe(initReviewsCarousel, "initReviewsCarousel");
       safe(initHeroParallax, "initHeroParallax");
     } else if (window.gsap) {
       safe(initMarquee, "initMarquee");
+      safe(initReviewsCarousel, "initReviewsCarousel");
     }
 
     document.documentElement.classList.add("is-ready");
