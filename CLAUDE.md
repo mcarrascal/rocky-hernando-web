@@ -38,6 +38,15 @@ Reseña: El texto que escribió la persona.
 Mili puede pegar el mail tal cual, o pasar los datos sueltos. Si falta el
 puntaje, asumir 5 estrellas.
 
+**Texto con la codificación rota (mojibake).** A veces el mail llega mal
+codificado y las tildes y eñes aparecen como pares de símbolos raros: `ReseÃ±a`
+en vez de `Reseña`. Es un problema del mail, no algo que la persona escribió.
+Leerlo como el texto correcto y **publicar siempre la versión bien escrita**.
+Vale para cualquier palabra, no solo para la etiqueta "Reseña": `Ã±` es `ñ`,
+`Ã¡` es `á`, `Ã©` es `é`, `Ã­` es `í`, `Ã³` es `ó`, `Ãº` es `ú`, `Ã` sola
+suele ser `í`. Si una reseña llega así, arreglar el texto entero antes de
+armar la tarjeta — nunca copiar los símbolos rotos al HTML.
+
 ### Cómo publicarlas
 
 **1. Rama.** Trabajar siempre en `claude/resenas`, partiendo de `main` actualizado:
