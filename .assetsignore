@@ -1,5 +1,24 @@
+# Archivos que NO se publican en el sitio.
+# Todo lo que esté en la carpeta del proyecto y no figure acá queda accesible
+# públicamente en https://<sitio>/<ruta-del-archivo>.
+
+# Fotos originales privadas de Rocky (la web usa assets/img/*.webp)
 assets/photos/
+
+# Scripts de trabajo
 tools/
+
+# Configuración que no se sirve
 .htaccess
 wrangler.jsonc
 .assetsignore
+
+# Repositorio git — publicarlo expondría todo el historial del proyecto
+.git/
+.gitignore
+
+# Cache local de Wrangler
+.wrangler/
+
+# Documentación interna para Claude
+CLAUDE.md
