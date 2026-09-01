@@ -88,8 +88,19 @@ git push -u origin claude/resenas
 listar quién dejó cada reseña y con cuántas estrellas, para que Mili lo revise
 de un vistazo desde el teléfono.
 
-**Mili mergea el PR.** No mergear por ella. Al mergearse a `main` es cuando la
-reseña queda publicada.
+**Mili mergea el PR.** No mergear por ella.
+
+**5. Deploy — importante: NO es automático.** Mergear a `main` no publica nada.
+La reseña recién se ve en el sitio cuando alguien corre:
+
+```bash
+npx wrangler deploy
+```
+
+Eso requiere estar logueado en Cloudflare (`npx wrangler login`, o un
+`CLOUDFLARE_API_TOKEN` en el entorno). Las sesiones de Claude normalmente **no**
+tienen esas credenciales, así que el deploy lo hace Mili. Al terminar un PR,
+recordarle que después de mergear tiene que correr el deploy.
 
 ### Cosas que NO hay que hacer
 
