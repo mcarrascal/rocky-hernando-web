@@ -22,3 +22,4 @@ wrangler.jsonc
 
 # Documentación interna para Claude
 CLAUDE.md
+.claude/
