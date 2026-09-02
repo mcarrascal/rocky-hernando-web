@@ -206,6 +206,12 @@ coincidan por hash y que `CLAUDE.md`, `.git/config` y demás sigan dando 404.
 **Nunca digas que una reseña está publicada si el deploy no corrió o si esta
 verificación no pasó.** Si algo falla, decilo con el error concreto.
 
+**La caché del borde.** Cloudflare puede seguir sirviendo la página anterior
+unos segundos después del deploy, aunque la versión nueva ya esté activa. El
+script reintenta solo y avisa si el problema es la caché y no el deploy. Si te
+dice eso, esperá un minuto y volvé a correrlo: la reseña no está realmente
+publicada para quien entre hasta que el borde se actualice.
+
 ---
 
 ## Cuando algo sale mal

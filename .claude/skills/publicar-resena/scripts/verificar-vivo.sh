@@ -30,10 +30,36 @@ di() { if [ "$1" = "0" ]; then echo "  OK     $2"; else echo "  FALLA  $2"; OK=1
 echo "Sitio: $SITIO"
 echo ""
 
-if ! curl -sS --max-time 30 "$SITIO/" -o "$WORK/live.html"; then
-  echo "ERROR: no pude descargar el sitio. Si dice 'CONNECT tunnel failed 403'," >&2
-  echo "la política de red del entorno bloquea el dominio: lo tiene que habilitar Mili." >&2
-  exit 1
+# El borde de Cloudflare puede seguir sirviendo la página vieja unos segundos
+# después del deploy. Eso no es un fallo del deploy, pero sí es lo que ve la
+# gente, así que esperamos a que el borde se ponga al día en vez de dar por
+# bueno un HIT viejo. Reintentamos la URL normal —la que abren los visitantes—
+# y recién si no se actualiza distinguimos "deploy fallido" de "caché atrasada".
+descargar() { curl -sS --max-time 30 "$1" -o "$2"; }
+
+INTENTOS=6
+for i in $(seq 1 $INTENTOS); do
+  if ! descargar "$SITIO/" "$WORK/live.html"; then
+    echo "ERROR: no pude descargar el sitio. Si dice 'CONNECT tunnel failed 403'," >&2
+    echo "la política de red del entorno bloquea el dominio: lo tiene que habilitar Mili." >&2
+    exit 1
+  fi
+  grep -qF "$FIRMA" "$WORK/live.html" && break
+  [ "$i" = "$INTENTOS" ] && break
+  echo "  ...el borde todavía sirve la versión anterior, reintento en 10s ($i/$INTENTOS)"
+  sleep 10
+done
+
+# ¿Sigue sin aparecer? Distinguir caché atrasada de deploy que no salió.
+if ! grep -qF "$FIRMA" "$WORK/live.html"; then
+  if descargar "$SITIO/?cb=$$-$RANDOM" "$WORK/nocache.html" && grep -qF "$FIRMA" "$WORK/nocache.html"; then
+    echo ""
+    echo "OJO: el deploy SÍ salió —saltando la caché, la reseña está publicada—"
+    echo "pero el borde de Cloudflare todavía sirve la página anterior a quien la"
+    echo "abra normalmente. Suele resolverse en un minuto. Volvé a correr esto"
+    echo "antes de decirle a Mili que está publicado."
+    exit 1
+  fi
 fi
 
 # --- Contenido publicado ---
