@@ -602,7 +602,13 @@ ul, ol { list-style: none; padding: 0; }
 .rev-nav.prev { left: 8px; }
 .rev-nav.next { right: 8px; }
 .rev-nav svg { width: 20px; height: 20px; }
-@media (max-width: 620px) { .rev-nav { width: 38px; height: 38px; } }
+/* En pantallas chicas los fundidos laterales tapan buena parte de la tarjeta
+   —que ya ocupa casi todo el ancho— y ensucian la lectura. En escritorio sí
+   aportan, porque ahí sobra espacio a los costados. */
+@media (max-width: 620px) {
+  .rev-nav { width: 38px; height: 38px; }
+  .reviews-carousel::before, .reviews-carousel::after { content: none; }
+}
 
 .reviews-form-card { position: relative; max-width: 640px; margin: 0 auto; background: var(--bg-3); border: 1px solid var(--line); border-radius: 18px; padding: clamp(1.5rem, 4vw, 2.2rem); }
 .reviews-cta-title { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem); }
