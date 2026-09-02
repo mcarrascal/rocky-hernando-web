@@ -449,6 +449,9 @@ ul, ol { list-style: none; padding: 0; }
    17. Footer
    ============================================================= */
 .footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: clamp(3rem, 7vw, 4.5rem) var(--gutter) 2rem; }
+/* En mobile el botón flotante de WhatsApp (.wa-fab) queda sobre el footer:
+   sumamos espacio abajo para que los íconos de Kepler no se solapen. */
+@media (max-width: 719px) { .footer { padding-bottom: 7rem; } }
 .footer-inner { max-width: var(--maxw); margin: 0 auto; display: grid; gap: 2rem; align-items: center; }
 .footer-brand { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
 .footer-mark { color: var(--accent); }
@@ -564,7 +567,7 @@ ul, ol { list-style: none; padding: 0; }
 /* =============================================================
    18f. Reseñas (testimonios + formulario con estrellas)
    ============================================================= */
-.reviews { max-width: var(--maxw); margin: 0 auto; padding: clamp(2.75rem, 6vw, 4.5rem) var(--gutter); }
+.reviews { max-width: min(1660px, 95vw); margin: 0 auto; padding: clamp(2.75rem, 6vw, 4.5rem) var(--gutter); }
 .reviews .section-head { padding: 0; margin-bottom: 2.2rem; }
 .reviews-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; }
 @media (min-width: 720px) { .reviews-grid { gap: 1.1rem; } }

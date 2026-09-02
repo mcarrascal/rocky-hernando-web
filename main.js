@@ -371,7 +371,7 @@
     var tweens = [], rt = null, fontsHooked = false;
     var mainTween = null, unitPx = 0, isHover = false, manualLock = false;
 
-    function colsFor(w) { return w < 620 ? 1 : (w < 980 ? 2 : 3); }
+    function colsFor(w) { return w < 620 ? 1 : (w < 980 ? 2 : (w < 1400 ? 3 : 4)); }
 
     // Alturas naturales (texto completo) de cada reseña al ancho de columna dado.
     function measure(colW) {
