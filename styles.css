@@ -325,16 +325,16 @@ ul, ol { list-style: none; padding: 0; }
 .exped { max-width: var(--maxw); margin: 0 auto; padding: clamp(2.75rem, 6vw, 4.5rem) var(--gutter); }
 .exped .section-head { padding: 0; margin-bottom: 3rem; }
 .exped-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
-.exp-card { position: relative; border-radius: 14px; overflow: hidden; background: var(--bg-3); border: 1px solid var(--line); }
+.exp-card { position: relative; display: flex; flex-direction: column; border-radius: 14px; overflow: hidden; background: var(--bg-3); border: 1px solid var(--line); }
 .exp-img { overflow: hidden; }
 .exp-img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; transition: transform .9s var(--ease-out), filter .6s; }
 .exp-card:hover .exp-img img { transform: scale(1.08); filter: saturate(1.1) brightness(1.04); }
-.exp-body { padding: 1.5rem 1.6rem 1.8rem; }
-.exp-loc { font-family: var(--mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ice); margin-bottom: .55rem; }
-.exp-name { font-family: var(--serif); font-size: 1.62rem; line-height: 1.08; color: var(--snow); margin-bottom: .4rem; }
-.exp-alt { font-family: var(--mono); color: var(--accent); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; margin: 0; display: inline-flex; align-items: center; gap: .4rem; }
-.exp-alt::before { content: ""; width: 14px; height: 1px; background: var(--accent); opacity: .8; }
-.exp-desc { color: var(--snow-2); font-size: .96rem; line-height: 1.5; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+/* Cuerpo en columna: lugar + etiqueta arriba; título + descripción pegados abajo. */
+.exp-body { flex: 1; display: flex; flex-direction: column; padding: 1.5rem 1.6rem 1.7rem; }
+.exp-loc { order: 1; font-family: var(--mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ice); margin-bottom: .5rem; }
+.exp-alt { order: 2; font-family: var(--mono); color: var(--accent); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; margin: 0; }
+.exp-name { order: 3; margin: 0 0 .28rem; font-family: var(--serif); font-size: 1.62rem; line-height: 1.08; color: var(--snow); }
+.exp-desc { order: 4; margin-top: auto; color: var(--snow-2); font-size: .96rem; line-height: 1.5; }
 
 @media (min-width: 640px) { .exped-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .exped-grid { grid-template-columns: repeat(4, 1fr); gap: 1.2rem; } }
