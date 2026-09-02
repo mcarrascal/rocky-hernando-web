@@ -20,6 +20,12 @@ No hay tests ni linter. Para validar un cambio, abrir `index.html` en el navegad
 teléfono, en una sesión nueva sin contexto previo. Cuando eso pase, seguí este
 procedimiento tal cual.
 
+> **Hay una skill que hace esto de punta a punta:** `publicar-resena`
+> (en `.claude/skills/publicar-resena/`). Incluye scripts de verificación que
+> comprueban la tarjeta en un navegador real y el deploy contra el sitio en vivo.
+> Usala si está disponible. Lo que sigue acá abajo es el mismo procedimiento
+> escrito a mano, como respaldo para cuando la skill no se cargue.
+
 ### De dónde vienen las reseñas
 
 El formulario de la web (`index.html`, sección `#resenas`) manda las reseñas
