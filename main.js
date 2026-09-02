@@ -369,7 +369,7 @@
 
     var GAP = 16, SPEED = 42;
     var tweens = [], rt = null, fontsHooked = false;
-    var mainTween = null, unitPx = 0, isHover = false, manualLock = false;
+    var mainTween = null, unitPx = 0, isHover = false, manualLock = false, touchPaused = false;
 
     function colsFor(w) { return w < 620 ? 1 : (w < 980 ? 2 : (w < 1400 ? 3 : 4)); }
 
@@ -460,7 +460,7 @@
       var tw = window.gsap.fromTo(track, { x: 0 }, { x: -period, duration: period / SPEED, ease: "none", repeat: -1 });
       tw.totalTime(tw.duration() * 100000);   // margen para desplazar hacia atrás sin llegar a 0
       tweens = [tw]; mainTween = tw; unitPx = colW + GAP;
-      if (isHover) tw.timeScale(0);
+      if (isHover || touchPaused) tw.timeScale(0);
 
       // Recalcular una vez que cargan las fuentes (cambian las alturas medidas).
       if (!fontsHooked && document.fonts && document.fonts.ready) {
@@ -469,8 +469,12 @@
       }
     }
 
-    // Estado de auto-scroll (0 = pausado por hover, 1 = corriendo).
-    function setAuto() { if (manualLock || !mainTween) return; window.gsap.to(mainTween, { timeScale: isHover ? 0 : 1, duration: .4, overwrite: true }); }
+    // Estado de auto-scroll (0 = pausado por hover o por toque, 1 = corriendo).
+    function setAuto() {
+      if (manualLock || !mainTween) return;
+      var frenar = isHover || touchPaused;
+      window.gsap.to(mainTween, { timeScale: frenar ? 0 : 1, duration: .4, overwrite: true });
+    }
 
     // Desplazamiento manual: una columna por clic, respetando el loop infinito.
     function nudge(dir) {
@@ -494,9 +498,49 @@
     var btnPrev = navBtn(-1, "Reseñas anteriores");
     var btnNext = navBtn(1, "Reseñas siguientes");
 
-    // Pausa suave al pasar el mouse (cortesía; en touch no aplica).
-    host.addEventListener("mouseenter", function () { isHover = true; setAuto(); });
-    host.addEventListener("mouseleave", function () { isHover = false; setAuto(); });
+    // Pausa suave al pasar el mouse. Va por pointer* y solo con pointerType
+    // "mouse": al tocar la pantalla el navegador emite un mouseenter de
+    // compatibilidad, y como el dedo nunca "sale", el mouseleave no llega nunca.
+    // Con mouseenter a secas eso dejaba el carrusel congelado para siempre.
+    host.addEventListener("pointerenter", function (e) {
+      if (e.pointerType !== "mouse") return;
+      isHover = true; setAuto();
+    });
+    host.addEventListener("pointerleave", function (e) {
+      if (e.pointerType !== "mouse") return;
+      isHover = false; setAuto();
+    });
+
+    // Pausa por toque. En un teléfono no hay hover, así que sin esto las reseñas
+    // largas hay que leerlas mientras se mueven. Un toque congela el carrusel,
+    // otro lo suelta. Hay que distinguir el toque real del scroll: si el dedo se
+    // desplazó o se quedó apoyado, la persona estaba scrolleando, no pidiendo pausa.
+    var tapX = 0, tapY = 0, tapT = 0;
+    host.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse") return;
+      tapX = e.clientX; tapY = e.clientY; tapT = Date.now();
+    }, { passive: true });
+    host.addEventListener("pointerup", function (e) {
+      if (e.pointerType === "mouse") return;
+      if (e.target.closest && e.target.closest(".rev-nav")) return;   // las flechas ya hacen lo suyo
+      if (Math.abs(e.clientX - tapX) > 10 || Math.abs(e.clientY - tapY) > 10) return;
+      if (Date.now() - tapT > 600) return;
+      touchPaused = !touchPaused;
+      host.setAttribute("data-pausado", touchPaused ? "true" : "false");
+      setAuto();
+    }, { passive: true });
+
+    // Si la sección se va de pantalla, soltamos la pausa. Al volver más tarde el
+    // carrusel se mueve de nuevo, en vez de aparecer congelado sin motivo visible.
+    if (window.IntersectionObserver) {
+      new window.IntersectionObserver(function (entradas) {
+        if (!entradas[0].isIntersecting && touchPaused) {
+          touchPaused = false;
+          host.setAttribute("data-pausado", "false");
+          setAuto();
+        }
+      }, { threshold: 0 }).observe(host);
+    }
 
     build();
     window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(build, 220); });
