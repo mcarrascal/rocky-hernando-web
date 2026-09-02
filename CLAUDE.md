@@ -13,6 +13,35 @@ No hay tests ni linter. Para validar un cambio, abrir `index.html` en el navegad
 
 ---
 
+## 📱 El teléfono va primero
+
+**La gran mayoría de la gente entra al sitio desde el celular.** Cualquier cambio
+se piensa, se prueba y se decide en mobile primero; escritorio viene después.
+
+En la práctica:
+
+- **Probar siempre en un viewport de teléfono** (390×844 sirve como referencia) y
+  recién después en escritorio. Si algo tiene que ceder, cede escritorio.
+- **Lo que depende del mouse no existe en un teléfono.** Nada importante puede
+  quedar atado a `hover`. Ojo con esto: al tocar la pantalla el navegador emite
+  eventos de mouse "de compatibilidad" que parecen funcionar y en realidad dejan
+  estados trabados —un `mouseenter` que llega y un `mouseleave` que no llega
+  nunca—. Por eso el carrusel de reseñas usa `pointerenter`/`pointerleave`
+  filtrando por `pointerType === "mouse"`, y tiene su propia pausa por toque.
+- **Pensar el dedo, no el cursor.** Áreas tocables de al menos 38–44px, y cuidado
+  con confundir un scroll con un toque: si el dedo se desplazó, la persona estaba
+  scrolleando.
+- **Texto que se pueda leer sin pelear.** Nada de contenido en movimiento que no
+  se pueda frenar, ni degradados que tapen el texto en pantallas angostas.
+- **Peso y batería importan más** en un teléfono con datos móviles que en una
+  compu.
+
+Cuando un cambio afecte a las dos vistas, contale a Mili cómo queda en cada una
+—pero empezá por el teléfono, que es donde va a mirarlo ella y donde está su
+gente.
+
+---
+
 ## 📌 Tarea principal: publicar reseñas nuevas
 
 **Este es el motivo por el que existe este archivo.** La dueña del sitio
